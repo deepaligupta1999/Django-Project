@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/delete_style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Delete</title>
+  </head>
+  <body>
+    <div class='bgimage' style='background-image: url("{% static 'image/taking-notes-1.jpg' %}"); '>
+    </div>
+    <div class="main" id="contain">
+      <div id-"info">
+      <form class="" method="post">
+        {% csrf_token %}
+        <br>
+        <h5>{{data.date}}</h5><br>
+        <p>Do you wish to delete "{{data.task}}" ?</p>
+        <br>
+        <a class="y" href="{% url 'home' %}">Cancle</a>
+        <input class="z" type="submit"  value="Yes">
+      </form>
+    </div>
+  </div>
+  </body>
+</html>

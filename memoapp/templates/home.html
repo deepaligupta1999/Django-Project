@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/homestyle.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Memo</title>
+  </head>
+  <body >
+    <div class='bgimage' style='background-image: url("{% static 'image/taking-notes-1.jpg' %}"); '>
+    </div>
+    <div class='main' id="contain">
+      <div id-"info">
+        <form class=""  method="post">
+        {% csrf_token %}
+        <div class="row">
+          {{form.task}}
+          <input class ="col-sm" id="add" type="submit" name="" value="Add">
+        </div>
+      </form>
+      {% for obj in data %}
+        <div class="container x ">
+          <div class="date">{{obj.date}}</div>
+          <a class=" z" href="{% url 'delete' obj.id %}">Delete</a>
+          <a class=" y" href="{% url 'update' obj.id %}">Update</a><br>
+          {% if obj.complete %}
+            <strike><p>{{obj.task}}</p></strike>
+          {% else %}
+            <p>{{obj.task}}</p>
+          {% endif %}
+        </div>
+
+      {% endfor %}
+      </div>
+    </div>
+
+
+
+  </body>
+</html>
